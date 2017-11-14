@@ -1,0 +1,6 @@
+AppBundle\Entity\Step:
+    properties:
+        title:
+            - NotBlank: ~
+        content:
+            - NotBlank: ~

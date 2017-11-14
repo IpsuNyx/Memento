@@ -1,0 +1,41 @@
+AppBundle\Entity\Step:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\StepRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        content:
+            type: text
+            nullable: true
+    manyToMany:
+        parents:
+            targetEntity: AppBundle\Entity\Step
+            inversedBy: childs
+            joinTable:
+                name: Step_has_Step
+                joinColumns:
+                    childStep:
+                        referencedColumnName: id
+                        nullable: true
+                inverseJoinColumns:
+                    parentStep:
+                        referencedColumnName: id
+                        nullable: true
+        childs:
+            targetEntity: AppBundle\Entity\Step
+            mappedBy: parents
+    oneToMany:
+        traces:
+            targetEntity: AppBundle\Entity\Trace
+            mappedBy: step
+
+
+    lifecycleCallbacks: {  }

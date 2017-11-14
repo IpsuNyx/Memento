@@ -1,0 +1,31 @@
+AppBundle\Entity\Trace:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\TraceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        trace_type:
+            type: integer
+        createAt:
+            type: datetime
+
+    manyToOne:
+        users:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: traces
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+        steps:
+            targetEntity: AppBundle\Entity\Step
+            inversedBy: traces
+            joinColumn:
+                name: step_id
+                referencedColumnName: id
+
+    lifecycleCallbacks: {  }

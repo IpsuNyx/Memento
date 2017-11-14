@@ -1,0 +1,34 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use FOS\UserBundle\Model\User as UserBase;
+/**
+ * User
+ */
+class User extends  UserBase
+{
+    /**
+     * @var integer
+     */
+    protected $id;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+}

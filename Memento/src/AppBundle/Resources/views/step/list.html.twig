@@ -1,0 +1,39 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block body %}
+
+
+
+
+
+
+    {% for step in steps %}
+        {{ dump(step) }}
+        <div>
+            <h1>Parents</h1>
+            {% if step.parents is defined and not null %}
+                {% for parent in step.parents %}
+                    <p>id[{{ parent.id }}] title[{{ parent.title }}] content[{{ parent.content }}]
+                    </p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div>
+            <h1>Child</h1>
+            {% if step.childs is defined and not null %}
+                {% for child in step.childs %}
+                    {{ child.id }}<br/>
+                    {{ child.title }}<br/>
+                    {{ child.content }}<br/>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+    {% endfor %}
+
+    <form action="{{ path('remove') }}" method="POST">
+        <input type="number" name="id" placeholder="Step id"/>
+        <input type="submit"/>
+    </form>
+{% endblock %}
+

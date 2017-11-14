@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {{ include('@App/default/nav.html.twig') }}
+        {% block body %}{% endblock %}
+
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}" ></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
+        <link rel="script" href="{{ asset('css/bootstrap.min.css') }}" />
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
